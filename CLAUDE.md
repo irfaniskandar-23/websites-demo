@@ -33,13 +33,14 @@ For every tool added to the stack, check whether it publishes an **official** MC
 
 ## Per-site workflow
 
+0. **Branch first.** Before brainstorming writes anything, create the site's branch `feat/<name>` from a freshly pulled `main` (see `git-ops`). **One branch per site, from brainstorming until it's live.** Every document for a site (brief, design notes, build plan) is written and committed on that branch, inside `sites/<name>/`, never on `main` and never in the repo-wide `docs/` folder.
 1. **`sites/<name>/BRIEF.md`:** the business: problem, audience, edge over competitors, pricing, personality, and a **Site scope** section (single landing page or small multi-page site). Test for what belongs here: *"Would this still be true if the website didn't exist?"*
 2. **`sites/<name>/DESIGN.md`:** the site's look, with every choice traced back to the brief ("X, because the brief says Y"). Use the `frontend-design` skill: make a token plan, then check it against the brief. Before finalizing, read the earlier sites' `DESIGN.md` files and ask: *"Would someone looking at both sites think the same template made them?"*
-3. **Scaffold and link:** create the Astro project in `sites/<name>/`. In the same PR, create its Vercel project (Root Directory = `sites/<name>`) so every later PR for the site gets a preview link.
+3. **Scaffold and link:** create the Astro project in `sites/<name>/`. Then create its Vercel project (Root Directory = `sites/<name>`), so every later push to the site branch gets a preview link.
 4. **Build section by section,** taking screenshots at 375, 768 and 1280px after each section.
 5. **Polish pass:** `design:design-critique`, `design:accessibility-review`, `design:ux-copy`.
 6. **AI-tells check:** compare the site against the `frontend-design` list of common AI-generated patterns.
-7. **Owner review** on the Vercel preview, then merge to `main` (this deploys production) and add the live link to the README.
+7. **Owner review** on the Vercel preview. Add the site's live link to the README on the site branch, then merge the site's PR to `main` (this deploys production).
 
 ## Design rules
 
@@ -47,6 +48,8 @@ All sites must satisfy the root [`DESIGN.md`](DESIGN.md). A site's own `DESIGN.m
 
 ## Git
 
+- **Use the project skill [`git-ops`](.claude/skills/git-ops/SKILL.md) for every git operation.**
+- Create the branch **before** writing any file for a new piece of work.
 - Never commit or push to `main`. Work on a branch, open a PR, then merge with `gh pr merge --merge`. Merge commits only, never squash or rebase.
 - Conventional Commits for every message.
 - **Before any push: `npm run build` must pass in every changed `sites/*` project.**

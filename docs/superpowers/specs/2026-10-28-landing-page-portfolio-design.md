@@ -130,7 +130,7 @@ Answer two questions: does the tool already provide this, so we don't reinvent t
 - Discuss and iterate on decisions until the owner understands them, before any groundwork.
 - Build code **one step at a time** so the owner can see how the pieces fit together.
 - Git: feature branches, PRs, Conventional Commits and merge commits only, per the global CLAUDE.md.
-- **Build before push (owner's decision).** The project `CLAUDE.md` requires `npm run build` to pass for every changed `sites/*` project before any push. This is enforced as a CLAUDE.md rule only. The git-guardrails skill is **not** extended for this, because its build guard only covers .NET and silently skips other projects. A new git-operations skill will be introduced later; that is out of scope for this spec.
+- **Build before push (owner's decision).** `npm run build` must pass for every changed `sites/*` project before any push. The project's [`git-ops`](../../../.claude/skills/git-ops/SKILL.md) skill enforces this, along with the rest of the git workflow.
 - Once Vercel is connected, its preview build on each PR acts as a second, server-side check. GitHub Actions is not needed for now.
 - Done check for each site: the owner and Claude review the result together. Before that review, Claude checks the site against the `frontend-design` list of AI-generated tells.
 
@@ -143,13 +143,13 @@ Answer two questions: does the tool already provide this, so we don't reinvent t
    - Create the repo following section 6: generalize `New-Repo`, then create the repo with a Node `.gitignore`, a ruleset on `main` and merge commits only.
    - Set up the folder skeleton, root `CLAUDE.md`, root `DESIGN.md` and a README stub.
    - Connect the MCPs (Astro Docs, Context7, Vercel sign-in).
-2. **First site:**
+2. **First site** (all on one branch, `feat/<site>`, from brainstorming until it's live):
    - Write `BRIEF.md` by hand, together.
    - Write `DESIGN.md` (token plan, checked against the brief).
-   - Scaffold the Astro project and create its Vercel project in the same PR, so later PRs get preview links.
+   - Scaffold the Astro project and create its Vercel project, so every later push to the branch gets a preview link.
    - Build it section by section, with screenshots at desktop and phone widths.
    - Run the polish pass.
-   - The owner reviews the Vercel preview, then merge to `main` (this deploys production) and add the live link to the README.
+   - The owner reviews the Vercel preview. Add the live link to the README, then merge the site's PR to `main` (this deploys production).
 3. **Phase 2.5:** after 1–2 sites, create the `/site-brief` skill.
 4. **Repeat for each site.** Add the main portfolio page once 2–3 sites exist.
 
