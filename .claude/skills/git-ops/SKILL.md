@@ -19,7 +19,7 @@ Every time, in this order:
      git checkout main && git pull --no-rebase origin main && git checkout -b <branch>
      ```
 2. **Do the work** and commit it (§3).
-3. **Run the pre-push checks** (§4), push, and open or update the PR (§5).
+3. **Run the pre-push checks** (§4) and push. Open a PR only when the work is complete (§5).
 
 Never create or edit files on `main`.
 
@@ -58,8 +58,9 @@ Run these in order. If any one fails, stop and report. Do not push.
 
 ## 5. Pull requests
 
-- **One PR for a site's build.** Open it as a draft (`gh pr create --draft`) on the site branch's first push, so the work is visible as it grows. Mark it ready (`gh pr ready`) when the site is ready for the owner's review. Later changes to a live site open a new PR from the same branch.
-- Once the site's Vercel project is linked, every push to the site branch gets its own preview deployment. The owner checks the latest preview on a real phone before merging.
+- **A site's PR is opened only when the site is complete:** built, polished, AI-tells checked and ready for the owner's review. Until then, commits are just pushed to the site branch. No draft PRs, and never a PR per commit or per step.
+- Previews don't need a PR. Once the site's Vercel project is linked, Vercel builds a preview for every push to the site branch. The owner checks the latest preview on a real phone before merging.
+- Later changes to a live site get their own PR from the same branch, again only once those changes are complete.
 - The body says what changed and why, and ends with:
   `🤖 Generated with [Claude Code](https://claude.com/claude-code)`
 - Nothing personal from the conversation goes into PR titles or bodies.

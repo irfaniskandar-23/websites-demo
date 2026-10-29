@@ -40,7 +40,7 @@ For every tool added to the stack, check whether it publishes an **official** MC
 4. **Build section by section,** taking screenshots at 375, 768 and 1280px after each section.
 5. **Polish pass:** `design:design-critique`, `design:accessibility-review`, `design:ux-copy`.
 6. **AI-tells check:** compare the site against the `frontend-design` list of common AI-generated patterns.
-7. **Owner review** on the Vercel preview. Add the site's live link to the README on the site branch, then merge the site's PR to `main` (this deploys production).
+7. **Open the site's PR**, only now that the site is complete. Owner review on the Vercel preview. Add the site's live link to the README on the site branch, then merge the PR to `main` (this deploys production).
 
 ## Design rules
 
@@ -53,7 +53,7 @@ All sites must satisfy the root [`DESIGN.md`](DESIGN.md). A site's own `DESIGN.m
 - Never commit or push to `main`. Work on a branch, open a PR, then merge with `gh pr merge --merge`. Merge commits only, never squash or rebase.
 - Conventional Commits for every message.
 - **Before any push: `npm run build` must pass in every changed `sites/*` project.**
-- Every PR gets a Vercel preview. Check it on a real phone before merging.
+- Every push to a site branch gets a Vercel preview. Check it on a real phone before merging.
 
 ## Way of working
 
