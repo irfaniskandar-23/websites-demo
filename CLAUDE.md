@@ -13,6 +13,7 @@ Full spec: [`docs/superpowers/specs/2026-10-28-landing-page-portfolio-design.md`
 
 - **Astro** for structure, **Tailwind CSS** for styling.
 - **No UI component library** (no shadcn, MUI, Ant, Bootstrap). Components are hand-built so each site can have its own look.
+- **Fonts** are self-hosted, using whatever approach the current Astro docs recommend (check the Astro Docs MCP rather than memory).
 - **npm.** Each `sites/<name>/` is an independent Astro project with its own `package.json`. There is no shared code or workspace tooling until repetition actually hurts.
 - **Vercel:** one Vercel project per site, with Root Directory = `sites/<name>`, on a free `*.vercel.app` address.
 
@@ -34,10 +35,11 @@ For every tool added to the stack, check whether it publishes an **official** MC
 
 1. **`sites/<name>/BRIEF.md`:** the business: problem, audience, edge over competitors, pricing, personality, and a **Site scope** section (single landing page or small multi-page site). Test for what belongs here: *"Would this still be true if the website didn't exist?"*
 2. **`sites/<name>/DESIGN.md`:** the site's look, with every choice traced back to the brief ("X, because the brief says Y"). Use the `frontend-design` skill: make a token plan, then check it against the brief. Before finalizing, read the earlier sites' `DESIGN.md` files and ask: *"Would someone looking at both sites think the same template made them?"*
-3. **Build section by section,** taking screenshots at 375, 768 and 1280px after each section.
-4. **Polish pass:** `design:design-critique`, `design:accessibility-review`, `design:ux-copy`.
-5. **AI-tells check:** compare the site against the `frontend-design` list of common AI-generated patterns.
-6. **Owner review,** then deploy to Vercel and add the site to the README.
+3. **Scaffold and link:** create the Astro project in `sites/<name>/`. In the same PR, create its Vercel project (Root Directory = `sites/<name>`) so every later PR for the site gets a preview link.
+4. **Build section by section,** taking screenshots at 375, 768 and 1280px after each section.
+5. **Polish pass:** `design:design-critique`, `design:accessibility-review`, `design:ux-copy`.
+6. **AI-tells check:** compare the site against the `frontend-design` list of common AI-generated patterns.
+7. **Owner review** on the Vercel preview, then merge to `main` (this deploys production) and add the live link to the README.
 
 ## Design rules
 

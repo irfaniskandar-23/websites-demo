@@ -60,3 +60,11 @@ More sources may be added here later. **No AI-generated photos.**
 - Sentence case for headings, buttons and labels.
 - CTAs say exactly what they do ("Book a table", not "Submit").
 - No lorem ipsum and no Faker-generated text. Every word is written for that business.
+- English by default. Use Malay or local flavor where the site's brief calls for it.
+
+## 7. Fictional content
+
+- Every business is based on a **real business category** (for example, a kind of café or clinic that really exists in Malaysia), with a **fictional name and details**.
+- **No real brands, no real government bodies, no crests or logos**, whether copied or imitated.
+- Government-style sites use a **fictional agency**.
+- A site must never be mistakable for a real business or a real government body. The concept footer (§4) and the CTA behavior (§2) back this up, but they don't replace it.
