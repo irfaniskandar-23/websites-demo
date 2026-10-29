@@ -146,9 +146,10 @@ Answer two questions: does the tool already provide this, so we don't reinvent t
 2. **First site:**
    - Write `BRIEF.md` by hand, together.
    - Write `DESIGN.md` (token plan, checked against the brief).
+   - Scaffold the Astro project and create its Vercel project in the same PR, so later PRs get preview links.
    - Build it section by section, with screenshots at desktop and phone widths.
    - Run the polish pass.
-   - Deploy to Vercel, then add the site to the README.
+   - The owner reviews the Vercel preview, then merge to `main` (this deploys production) and add the live link to the README.
 3. **Phase 2.5:** after 1–2 sites, create the `/site-brief` skill.
 4. **Repeat for each site.** Add the main portfolio page once 2–3 sites exist.
 
