@@ -89,7 +89,7 @@ websites-demo/
 - No separate design log. Before designing a new site, read the earlier sites' DESIGN.md files and ask: *"Would someone looking at both sites think the same template made them?"*
 
 **Deployment**
-- **Vercel**, with one Vercel project per site folder (its Root Directory set to `sites/<site-name>`). Each site gets its own link. Every PR gets a preview URL so the site can be checked on a phone before merging.
+- **Vercel**, with one Vercel project per site folder (its Root Directory set to `sites/<site-name>`). Each site gets its own link. Every push to a site's branch gets a preview URL, so the site can be checked on a phone before its PR is merged.
 - A main portfolio link (one page linking to every site) is **postponed** until 2 or more sites exist.
 
 **Docs first, before building (owner's rule, goes into the project CLAUDE.md).** For any "how do we do X" question, check the relevant tool's official docs **before** proposing or writing a custom solution:
@@ -149,7 +149,7 @@ Answer two questions: does the tool already provide this, so we don't reinvent t
    - Scaffold the Astro project and create its Vercel project, so every later push to the branch gets a preview link.
    - Build it section by section, with screenshots at desktop and phone widths.
    - Run the polish pass.
-   - The owner reviews the Vercel preview. Add the live link to the README, then merge the site's PR to `main` (this deploys production).
+   - Open the site's PR, only once the site is complete. The owner reviews the Vercel preview. Add the live link to the README, then merge the PR to `main` (this deploys production).
 3. **Phase 2.5:** after 1–2 sites, create the `/site-brief` skill.
 4. **Repeat for each site.** Add the main portfolio page once 2–3 sites exist.
 
